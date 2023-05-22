@@ -1,15 +1,15 @@
 # Temporary-text-note
 具有额外的功能——额外的代码确实增加了大小，所以不是极简主义的，但在缩小和 gzip 压缩后仍然是最小的 10kb。如果你想要真正的极简主义，那么 pereorga 的实现不到 3kb，甚至没有缩小！密码功能是通过向文本文件添加标题行来实现的，该标题行未显示在注释上**请注意，这不会加密内容，只是限制访问**。唯一的服务器要求是启用了 mod_rewrite 的 Apache 网络服务器或启用了 ngx_http_rewrite_module 和 PHP 的 nginx 网络服务器。
-安装步骤：
-1、把代码拷贝到网站根目录
-2、加入伪静态
-Nginx伪静态
+### 安装步骤：
+### 1、把代码拷贝到网站根目录
+### 2、加入伪静态
+### On Nginx
 ```
 location / {
     rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1;
 }
 ```
-3、打开网页就可以了
+### 3、打开网页就可以了
 
 只要启用了 mod_rewrite 并且允许 Web 服务器写入数据目录，就不需要配置_notes。此数据目录设置config.php为如果您想将其更改为原始 pereorga/minimalist-web-notepad 版本使用的文件夹，请在此处进行更改。所有笔记都存储为文本文件，因此运行 Apache（或 Nginx）的服务器应该足够了，不需要数据库。
 
