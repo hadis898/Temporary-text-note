@@ -4,9 +4,11 @@
 1、把代码拷贝到网站根目录
 2、加入伪静态
 Nginx伪静态
+```
 location / {
     rewrite ^/([a-zA-Z0-9_-]+)$ /index.php?note=$1;
 }
+```
 3、打开网页就可以了
 
 只要启用了 mod_rewrite 并且允许 Web 服务器写入数据目录，就不需要配置_notes。此数据目录设置config.php为如果您想将其更改为原始 pereorga/minimalist-web-notepad 版本使用的文件夹，请在此处进行更改。所有笔记都存储为文本文件，因此运行 Apache（或 Nginx）的服务器应该足够了，不需要数据库。
